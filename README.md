@@ -1,3 +1,15 @@
+after git clone :
+CD web3kit
+npm install
+
+==============================================
+
+example : 
+http://localhost:5173/aritems/13
+
+
+
+
 # create-svelte
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
