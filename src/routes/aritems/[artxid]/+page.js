@@ -4,7 +4,7 @@ export const load =({fetch,params}) => {
 
     const fetchProduct=async (txid) => {
 
-        const res=await fetch(`https://dummyjson.com/products/${txid}`)
+        const res=await fetch(`https://dummyjson.com/products/${txid}`)  //template literal
         const data=await res.json()
         return data
     }

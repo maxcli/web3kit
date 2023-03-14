@@ -2,10 +2,15 @@ after git clone :
 CD web3kit
 npm install
 
+
+ npm install --save arweave
+css : 
+https://picocss.com/docs/
+
 ==============================================
 
 example : 
-http://localhost:5173/aritems/13
+http://localhost:5173/aritems/2
 
 
 

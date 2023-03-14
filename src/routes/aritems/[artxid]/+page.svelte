@@ -6,5 +6,5 @@
 </script>
 
 <h1>{product.title}</h1>
-<h1>{product.description}</h1>
-<h1>Ar created</h1>
+<p>{product.description}</p>
+<p>{product.price.toFixed(2)}</p>
