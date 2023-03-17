@@ -1,39 +1,46 @@
-import { API_KEY } from '$env/static/private'; // secret, not exposed on client.
-//console.log('****** API KEY:',API_KEY)
-
+import { API_KEY } from '$env/static/private' 
+import Arweave from 'arweave'
 export const GET= async  ({request,url}) =>{
-    const authHeader=request.headers.get('Authorization')
-   //console.log('****** authHeader:',  authHeader )
 
-    if(authHeader!='MyAuthHeader')
+     
+    const arweave = Arweave.init({
+        host: import.meta.env.VITE_ARWEAVE_HOST || 'arweave.net',
+        port: import.meta.env.VITE_ARWEAVE_PORT || 443,
+        protocol: import.meta.env.VITE_ARWEAVE_PROTOCOL || 'https'
+    })
+    
+    const authHeader=request.headers.get('Authorization')
+    console.log('****** authHeader:',  authHeader )
+ 
+    if(authHeader!='ArchivistAuthHeader')    
     {
         return new Response( JSON.stringify ({message: "Invalid Auth Credentials"}), {status:401}  )
     }
+  
+    //todo pass protocol as paramter from config
+      const result = await arweave.api.post('graphql', {
+      query: `
+    query {
+        transactions (first: 100 , tags: { name: "Protocol", values: [ "Archivist_CR"] })  {
+        edges {
+            node {
+            id
+            tags {
+                name
+                value
+            }
+            }
+        }
+        }
+        }
+        `
+        })
 
-    const limit=Number(url.searchParams.get('limit') ?? '10')
-    const skip=Number(url.searchParams.get('skip') ?? '0')
+        console.log('*** Activity.after ql results:',result)
+        console.log('after ql result status:',result.status)   //200
+        const data= result?.data?.data?.transactions?.edges
+        return new Response(JSON.stringify (data), {status:200}    )
 
-
-
-    const res=await fetch( `https://dummyjson.com/posts?limit=${limit}&skip=${skip}`)    //template string  [::1]:5173/api/posts?limit=10&skip=10
-    const data =await res.json() 
-
-    return new Response(JSON.stringify (data), {status:200}    )
-}
-
-
-//
-//  [::1]:5173/api/arweave
-//  plus header 'Authorization'
-export const POST  = async  ({request}) =>{
-    const authHeader=request.headers.get('Authorization')
  
- 
-     if(authHeader!='MyAuthHeader')
-     {
-         return new Response( JSON.stringify ({message: "Invalid Auth Credentials"}), {status:401}  )
-     }
-    const body=await request.json()
-    console.log('****** post body:',  body )
-    return new Response( JSON.stringify ({message: "Success"}), {status:201}  )   // 201=created
 }
+ 
