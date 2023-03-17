@@ -8,10 +8,15 @@ css :
 https://picocss.com/docs/
 
 ==============================================
-
-example : 
+client route example : 
 http://localhost:5173/aritems/2
 
+
+Links : 
+https://www.youtube.com/watch?v=qlmDj7q2x0c
+
+Dummy json:
+https://dummyjson.com/docs/posts
 
 
 
