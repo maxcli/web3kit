@@ -1,8 +1,7 @@
 import { API_KEY } from '$env/static/private' 
 import Arweave from 'arweave'
-export const GET= async  ({request,url}) =>{
 
-     
+export const GET= async  ({request,url}) =>{     
     const arweave = Arweave.init({
         host: import.meta.env.VITE_ARWEAVE_HOST || 'arweave.net',
         port: import.meta.env.VITE_ARWEAVE_PORT || 443,
@@ -36,8 +35,8 @@ export const GET= async  ({request,url}) =>{
         `
         })
 
-        console.log('*** Activity.after ql results:',result)
-        console.log('after ql result status:',result.status)   //200
+        //console.log('*** Activity.after ql results:',result)
+        //console.log('after ql result status:',result.status)   //200
         const data= result?.data?.data?.transactions?.edges
         return new Response(JSON.stringify (data), {status:200}    )
 
