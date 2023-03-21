@@ -13,7 +13,7 @@ export const GET= async  ({request,url}) =>{
  
     if(authHeader!='ArchivistAuthHeader')    
     {
-        return new Response( JSON.stringify ({message: "Invalid Auth Credentials"}), {status:401}  )
+  //      return new Response( JSON.stringify ({message: "Invalid Auth Credentials"}), {status:401}  )
     }
   
     //todo pass protocol as paramter from config
@@ -38,6 +38,9 @@ export const GET= async  ({request,url}) =>{
         //console.log('*** Activity.after ql results:',result)
         //console.log('after ql result status:',result.status)   //200
         const data= result?.data?.data?.transactions?.edges
+
+        //console.log('*** Server JS data:',data )
+
         return new Response(JSON.stringify (data), {status:200}    )
 
  

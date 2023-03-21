@@ -13,11 +13,11 @@
       console.log('****** GET TXID:',  params.artxid)
 
       const authHeader=request.headers.get('Authorization')
-      console.log('****** authHeader:',  authHeader )
+     // console.log('****** authHeader:',  authHeader )
    
       if(authHeader!='ArchivistAuthHeader')    
       {
-          return new Response( JSON.stringify ({message: "Invalid Auth Credentials"}), {status:401}  )
+      //    return new Response( JSON.stringify ({message: "Invalid Auth Credentials"}), {status:401}  )
       }
      
 
