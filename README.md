@@ -18,7 +18,24 @@ https://www.youtube.com/watch?v=qlmDj7q2x0c
 Dummy json:
 https://dummyjson.com/docs/posts
 
+Vercel deploy: 
 
+---npm run build before git push---
+
+PS D:\gitsrc\web3kit> npx vercel
+Vercel CLI 28.16.7
+? Set up and deploy “D:\gitsrc\web3kit”? [Y/n] y
+? Which scope do you want to deploy to? petercli-hotmailcom
+? Link to existing project? [y/N] n
+? What’s your project’s name? archivistbulkapi
+? In which directory is your code located? ./
+Local settings detected in vercel.json:
+Auto-detected Project Settings (SvelteKit):
+- Build Command: vite build
+- Development Command: vite dev --port $PORT
+- Install Command: `yarn install`, `pnpm install`, or `npm install`
+- Output Directory: public
+? Want to modify these settings? [y/N] n
 
 # create-svelte
 
