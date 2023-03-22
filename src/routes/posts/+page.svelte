@@ -1,11 +1,13 @@
 <script>
 //http://localhost:5173/posts
     export let data
+    const {posts}=data
+    //console.log(data)
 </script>
 
 <div>
 
-{#each data.posts as post }
+{#each posts as post }
 
 
 <h1>{post.title}</h1>

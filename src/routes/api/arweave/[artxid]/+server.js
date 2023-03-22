@@ -10,7 +10,7 @@
           protocol: import.meta.env.VITE_ARWEAVE_PROTOCOL || 'https'
       })
       
-      console.log('****** GET TXID:',  params.artxid)
+      //console.log('****** GET TXID:',  params.artxid)
 
       const authHeader=request.headers.get('Authorization')
      // console.log('****** authHeader:',  authHeader )

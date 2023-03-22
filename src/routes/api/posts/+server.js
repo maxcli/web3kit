@@ -3,7 +3,7 @@ import { API_KEY } from '$env/static/private'; // secret, not exposed on client.
 
 export const GET= async  ({request,url}) =>{
     const authHeader=request.headers.get('Authorization')
-    console.log('****** authHeader:',  authHeader )
+    //console.log('****** authHeader:',  authHeader )
 
 //if(authHeader!='MyAuthHeader')
 //{

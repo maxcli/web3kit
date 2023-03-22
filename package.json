@@ -19,6 +19,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"arweave": "^1.13.1"
+		"arweave": "^1.13.1",
+		"dotenv": "^16.0.3"
 	}
 }
