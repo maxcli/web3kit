@@ -1,14 +1,23 @@
+
+
+import { authenticateUser } from './lib/server/authenticateUser';
+
 export async function handle({ event, resolve }) {
 
-    if (event.url.pathname.startsWith('/custom')) {
-      return new Response('custom response');
+    if (event.url.pathname.startsWith('/smile')) {
+  
+ 
+      return new Response('😄')
+    
     }
    //stage 1
-    event.locals.something ='data from hooks'
+    event.locals.user='Test' //authenticateUser(event)
 
     const response = await resolve(event);   //stage 2
 
     response.headers.set('x-custom-header', 'potato');
      //stage 3
     return response;
+
+    
   }
