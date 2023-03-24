@@ -26,13 +26,13 @@
 </script>
 
  <p>SvelteKit API endpoints for Arweave</p>
- 
+ <!--
 {#if $page.data.user}
      
     Welcome {$page.data.user.address}
 
 {/if}
-
+-->
 
  
 
