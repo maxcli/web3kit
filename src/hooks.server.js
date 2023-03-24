@@ -1,17 +1,15 @@
 
 
-import { authenticateUser } from './lib/server/authenticateUser';
+import { authenticateUser } from './lib/authenticateUser';
 
 export async function handle({ event, resolve }) {
 
     if (event.url.pathname.startsWith('/smile')) {
-  
- 
       return new Response('😄')
-    
     }
+    
    //stage 1
-    event.locals.user='Test' //authenticateUser(event)
+    event.locals.user= authenticateUser(event)
 
     const response = await resolve(event);   //stage 2
 

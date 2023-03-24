@@ -1,5 +1,6 @@
 {
-	"name": "web3kit",
+	"name": "archivistbulkapi",
+	"author": "Peter Clift <petercli@hotmail.com>",
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
@@ -20,6 +21,7 @@
 	"type": "module",
 	"dependencies": {
 		"arweave": "^1.13.1",
+		"arweave-wallet-connector": "^1.0.1",
 		"dotenv": "^16.0.3"
 	}
 }
