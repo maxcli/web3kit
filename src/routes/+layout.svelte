@@ -1,3 +1,6 @@
+<script>
+   //  import '../app.css' 
+</script>
 <header>
 <nav>
 <ul>
@@ -8,6 +11,9 @@
 <li>
 <a href="/aritems" data-sveltekit-preload-data="hover">AR Items</a>
 </li>
+<li>
+    <a  id="addanchor"  class=  "disable-click"  href="/add" >Add</a>
+    </li>
 <li>
     <a href="/about">About</a>
 </li>
@@ -21,7 +27,7 @@
 -->
 </ul>
 </nav>
-<h1>archivistbulkapi</h1>
+<h1>Archivist_CR</h1>
 
 </header>
 
@@ -31,6 +37,10 @@
 
 <style>
 
+.disable-click{
+          pointer-events:none;
+      }
+      
 nav{
     display: flex;
 }

@@ -4,9 +4,7 @@ export const load=({fetch}) =>{
         const response=await fetch('/api/arweave')
         if (response.ok)
         {
-            const data =await response.json()
-       //     console.log('*** aritem page.js data:',data)
-         
+            const data =await response.json()      
             return data 
         }
         else {

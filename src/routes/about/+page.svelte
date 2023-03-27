@@ -33,9 +33,9 @@
 </span>
 <p/>
  
-<p><b>Version : {version}</b></p>
+<p>Version: {version}</p>
 
-<p>Contact me : Petercli@hotmail.com</p>
+<p>Contact me: Petercli@hotmail.com</p>
 
 <p>GNU GENERAL PUBLIC LICENSE Version 3</p>
  

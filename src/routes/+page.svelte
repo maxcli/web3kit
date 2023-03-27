@@ -4,37 +4,51 @@
     import {page} from '$app/stores'
     import { ArweaveWebWallet } from 'arweave-wallet-connector'
     import {  arweaveObject  } from './arweavehelper'
+    let loginButton='Login'
  
-    onMount(async () => {
-      console.log('**** reach onmount')
+
+
+async function walletlogin() {
+  if (browser) {
+      console.log('****  arweaveWallet Browser')
       const wallet = new ArweaveWebWallet({
         name: 'Archivist_CR',
-        logo: `https://imgur.com/a/2RaXObI`//  `${window.location.origin}/static/door.jpg`    // `https://imgur.com/a/2RaXObI`  
+        logo: '/images/door.jpg'  //  `${window.location.origin}/data/door.jpg`    // `https://imgur.com/a/2RaXObI`  
       })
-    
-      console.log('****  arweaveWallet before connect. wallet:',wallet)
-
       wallet.setUrl('arweave.app')
       const result = await  wallet.connect()  //  chrome allow  popup https://support.google.com/chrome/answer/95472?hl=en&co=GENIE.Platform%3DDesktop
       document.cookie = `auth=${result}`   //todo add expires
-      console.log('****  arweaveWallet after connect. result:', result)
+      loginButton='Logged in(prod)'
+      document.getElementById('addanchor').classList.remove("disable-click")
 
-      if (window.arweaveWallet==undefined){
-        console.log('**** window.arweaveWallet is undefined')
-      }
-  })
+  }
+}
 </script>
 
  <p>SvelteKit API endpoints for Arweave</p>
- <!--
-{#if $page.data.user}
-     
-    Welcome {$page.data.user.address}
 
-{/if}
--->
+ <div class="flex space-x-8">
+  <button  class="btn"
+    on:click={async () => {   walletlogin() 
 
- 
+    }}>{loginButton}</button
+  >
+</div>
+
+
+
+<style>
+.btn {
+  padding: 0.8rem 1rem 0.7rem;
+  border: 0.2rem solid #4d4d4d;
+  cursor: pointer;
+  text-transform: capitalize;
+  width: 200px;
+
+
+
+}
+ </style>
 
  
 
