@@ -23,7 +23,7 @@
      
  
  
-
+{#if data.authCookie }
 <p><b>AR Wallet Address: {data.authCookie }</b></p>
 
 <p/>
@@ -32,7 +32,7 @@
     <input  bind:value={viewBalance} disabled   name="arbalancetxt" id="arbalancetxt"     type="text" />
 </span>
 <p/>
- 
+{/if}
 <p>Version: {version}</p>
 
 <p>Contact me: Petercli@hotmail.com</p>

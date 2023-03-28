@@ -1,33 +1,24 @@
 <script>
-   //  import '../app.css' 
+   export const appName ='Archivist_CR'  //todo read from config.
 </script>
 <header>
 <nav>
 <ul>
-<li>
-    <a href="/">Home</a>
-</li>
-
-<li>
-<a href="/aritems" data-sveltekit-preload-data="hover">AR Items</a>
-</li>
-<li>
-    <a  id="addanchor"  class=  "disable-click"  href="/add" >Add</a>
+    <li>
+        <a href="/">Home</a>
     </li>
-<li>
-    <a href="/about">About</a>
-</li>
-<!--
-<li>
-<a href="/movies"  data-sveltekit-preload-data="hover">Movies</a>
-</li>
-<li>
-    <a href="/products" data-sveltekit-preload-data="hover">Products</a>
-</li>
--->
+    <li>
+        <a href="/aritems" data-sveltekit-preload-data="hover">AR Items</a>
+    </li>
+    <li>
+        <a  id="addanchor"  class=  "disable-click"  href="/add" >Add</a>
+    </li>
+    <li>
+        <a href="/about">About</a>
+    </li>
 </ul>
 </nav>
-<h1>Archivist_CR</h1>
+<h1>{appName}</h1>  
 
 </header>
 

@@ -3,13 +3,17 @@ export const authenticateUser =  (event ) => {
     const {cookies}=event
     const userToken=cookies.get("auth")
 
-   // console.log('**** auth user usertoken:',userToken)
+    
 
-    //if (userToken=="regularusertoken"){
+    if (userToken){
+        //console.log('****  FOUND authenticateUser  usertoken:',userToken)
 
-    const user={
-            id:1, address:userToken, role:"USER"
+        const user={             id:1, address:userToken, role:"USER"        }
+        return user
+    }
+    else{
+      //  console.log('**** null authenticateUser  usertoken:',userToken)
+        return null
 
-        }
-    return user
+    }
 }

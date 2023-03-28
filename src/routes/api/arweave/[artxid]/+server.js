@@ -17,7 +17,7 @@
    
       if(authHeader!='ArchivistAuthHeader')    
       {
-      //    return new Response( JSON.stringify ({message: "Invalid Auth Credentials"}), {status:401}  )
+          return new Response( JSON.stringify ({message: "Invalid Auth Credentials"}), {status:401}  )
       }
      
 
