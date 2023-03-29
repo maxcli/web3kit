@@ -1,16 +1,20 @@
 import { error } from '@sveltejs/kit';
+import { arweaveUrl,getBalance} from '../arweavehelper'
 export const load = async ({ cookies ,locals}) => {
-
-
-    const authCookie =  cookies.get('auth')
-   
-    /*if (!authCookie) {
-        throw error(401, 'not logged in');
-        return null
+    let addr =   cookies.get('auth') 
+    let balance='0'
+    if (addr ){
+        balance=await getBalance(addr)
     }
-    console.log('** authcookie:',   authCookie)
-    */
+    return {
+
+        user:{
+            authCookie :  cookies.get('auth') ,
+            balance : balance
+
+    
+        }
+    }
+}
 
  
-    return { authCookie : authCookie}
-}

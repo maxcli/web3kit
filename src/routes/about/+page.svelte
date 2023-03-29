@@ -3,15 +3,11 @@
  import { version } from '$app/environment'
  
  export let data
+ const {user}=data
+
+ $: viewBalance =parseFloat(user.balance).toString()  //bind to html
  
- let ar_balance    
- $: viewBalance =parseFloat(ar_balance)  //bind to html
- ar_balance=  callgetBalanceAsync(data.authCookie)
 
- async function  callgetBalanceAsync(addr) {
-    ar_balance =await getBalance(addr)
-
- }
 
 </script>
 
@@ -23,16 +19,15 @@
      
  
  
-{#if data.authCookie }
-<p><b>AR Wallet Address: {data.authCookie }</b></p>
-
-<p/>
-<label for="arbalancetxt">Wallet Balance(AR):</label>
-<span>
-    <input  bind:value={viewBalance} disabled   name="arbalancetxt" id="arbalancetxt"     type="text" />
-</span>
-<p/>
-{/if}
+{#if user.authCookie }
+   <p><b>AR Wallet Address: {user.authCookie }</b></p>
+   <p/>
+   <label for="arbalancetxt">Wallet Balance(AR):</label>
+   <span>
+      <input  bind:value={viewBalance} disabled   name="arbalancetxt" id="arbalancetxt"     type="text" />
+   </span>
+   <p/>
+   {/if}
 <p>Version: {version}</p>
 
 <p>Contact me: Petercli@hotmail.com</p>

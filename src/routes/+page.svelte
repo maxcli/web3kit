@@ -1,29 +1,30 @@
 <script>
-    import { onMount } from 'svelte'
+    //import 'dotenv/config'
     import { browser } from '$app/environment'
     import {page} from '$app/stores'
     import { ArweaveWebWallet } from 'arweave-wallet-connector'
-    import {  arweaveObject  } from './arweavehelper'
+
     let loginButton='Login'
- 
 
 
-async function walletlogin() {
-  if (browser) {
-      console.log('****  arweaveWallet Browser')
-      const wallet = new ArweaveWebWallet({
-        name: 'Archivist_CR',
-        logo: '/images/door.jpg'  //  `${window.location.origin}/data/door.jpg`    // `https://imgur.com/a/2RaXObI`  
-      })
-      wallet.setUrl('arweave.app')
-      const result = await  wallet.connect()  //  chrome allow  popup https://support.google.com/chrome/answer/95472?hl=en&co=GENIE.Platform%3DDesktop
-      //document.cookie = `auth=${result}` 
-      document.cookie = `auth=${result};max-age=120`  // cookie lifespan -seconds 
-      loginButton='Logged in(prod)'
-      document.getElementById('addanchor').classList.remove("disable-click")
+    async function walletlogin() {
+      if (browser) {
+       //let cookieSeconds=500//process.env.COOKIE_DURATION_SECONDS??500
+       // console.log('cookie seconds:',cookieSeconds)
+      
+        const wallet = new ArweaveWebWallet({
+            name: 'Archivist_CR',
+            logo: `https://jfbeats.github.io/ArweaveWalletConnector/placeholder.svg` //'/images/door.jpg'    
+        })
+          wallet.setUrl('arweave.app')
+          const result = await  wallet.connect()  //  chrome allow  popup https://support.google.com/chrome/answer/95472?hl=en&co=GENIE.Platform%3DDesktop
+          //document.cookie = `auth=${result}` 
+          document.cookie = `auth=${result};max-age=120`  // cookie lifespan -seconds 
+          loginButton='Logged in(prod)'
+          document.getElementById('addanchor').classList.remove("disable-click")
 
-  }
-}
+      }
+    }
 </script>
 
  <p>SvelteKit API endpoints for Arweave</p>

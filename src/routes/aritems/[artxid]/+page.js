@@ -1,16 +1,22 @@
 export const load =({fetch,params}) => {
 
-    console.log(params) //ex { artxid: '13' }
+    console.log('** artxid/page.js params:',params) //ex { artxid: '13' }
 
     const fetchProduct=async (txid) => {
 
-        const res=await fetch(`/api/arweave/${txid}`)  //template literal
+
+        //console.log('**artxid:',txid) 
+        const res=await fetch(`/api/arweave/${txid}` ,
+        {    headers: {
+            'Authorization': `ArchivistAuthHeader`
+        }})   
+        
         const data=await res.json()
         return data
     }
 
     return {
-        product: fetchProduct(params.artxid)
+        arrecord: fetchProduct(params.artxid)
     }
 }
 

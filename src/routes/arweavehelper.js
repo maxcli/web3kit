@@ -23,7 +23,8 @@ export const  arweaveUrl = `${import.meta.env.VITE_ARWEAVE_PROTOCOL || "https"}:
 
           let winston = await  arweaveObject .wallets.getBalance(addr)
           let ar =  arweaveObject .ar.winstonToAr(winston);
-          return ar
+          //console.log('**** ar typeof:',(typeof(ar))))
+          return ar.toString()
       
         }
 
