@@ -1,6 +1,6 @@
 export const load =({fetch,params}) => {
 
-    console.log('** artxid/page.js params:',params) //ex { artxid: '13' }
+    //console.log('** artxid/page.js params:',params) //ex { artxid: '13' }
 
     const fetchProduct=async (txid) => {
 

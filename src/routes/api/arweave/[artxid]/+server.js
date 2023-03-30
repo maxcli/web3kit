@@ -1,6 +1,3 @@
-// thunder client  [::1]:5173/api/arweave/27mF8tz0zP7IH-7OmoBOaOWrTaxNbmQofR0D5XIaJ3A
-// postman http://localhost:5173/api/arweave/27mF8tz0zP7IH-7OmoBOaOWrTaxNbmQofR0D5XIaJ3A
-  import { API_KEY } from '$env/static/private' 
   import Arweave from 'arweave'
   
   export const GET= async  ({request,params}) =>{     

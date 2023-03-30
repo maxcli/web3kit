@@ -1,4 +1,3 @@
-//import { API_KEY } from '$env/static/private' 
 import Arweave from 'arweave'
 
 export const GET= async  ({request,url}) =>{     

@@ -19,9 +19,12 @@
           wallet.setUrl('arweave.app')
           const result = await  wallet.connect()  //  chrome allow  popup https://support.google.com/chrome/answer/95472?hl=en&co=GENIE.Platform%3DDesktop
           //document.cookie = `auth=${result}` 
-          document.cookie = `auth=${result};max-age=120`  // cookie lifespan -seconds 
+          document.cookie = `auth=${result};max-age=1200`  // cookie lifespan -seconds 
           loginButton='Logged in(prod)'
           document.getElementById('addanchor').classList.remove("disable-click")
+          document.getElementById('itemanchor').classList.remove("disable-click")
+
+          
 
       }
     }

@@ -2,7 +2,7 @@ import { error } from '@sveltejs/kit';
 
 export const load=({ fetch,cookies}) =>{
 
-    const fetchPosts=async() =>{
+    const fetchARItems=async() =>{
 
         const response=await fetch('/api/arweave',{
 
@@ -28,10 +28,10 @@ export const load=({ fetch,cookies}) =>{
         throw error(401, 'not logged in');
         return null
       }
-      //response.headers.set('x-custom-header', 'potato');
+ 
 
     return {
-        posts:fetchPosts()
+        aritems:fetchARItems()
     }
     
 }
