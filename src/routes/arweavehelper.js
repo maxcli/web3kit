@@ -1,20 +1,26 @@
 import { ArweaveWebWallet } from 'arweave-wallet-connector'
 import Arweave from 'arweave'
 
+import {PUBLIC_ARWEAVE_PORT} from '$env/static/public'
+import {PUBLIC_ARWEAVE_PROTOCOL} from '$env/static/public'
+import {PUBLIC_ARWEAVE_HOST} from '$env/static/public'
+
+PUBLIC_ARWEAVE_PROTOCOL
+
 export let addr=''
 export let ar_balance=0
 
 //todo move into a client LOAD or client layout?
 
 export const arweaveObject = Arweave.init({
-  host: import.meta.env.VITE_ARWEAVE_HOST || 'arweave.net',
-  port: import.meta.env.VITE_ARWEAVE_PORT || 443,
-  protocol: import.meta.env.VITE_ARWEAVE_PROTOCOL || 'https'
+  host:  PUBLIC_ARWEAVE_HOST,
+  port:  PUBLIC_ARWEAVE_PORT  ,
+  protocol: PUBLIC_ARWEAVE_PROTOCOL
 })
 
-export const  arweaveUrl = `${import.meta.env.VITE_ARWEAVE_PROTOCOL || "https"}://${  import.meta.env.VITE_ARWEAVE_HOST || "arweave.dev"   }:${import.meta.env.VITE_ARWEAVE_PORT || "443"}`;
+export const  arweaveUrl = `${PUBLIC_ARWEAVE_PROTOCOL}://${  PUBLIC_ARWEAVE_HOST}:${ PUBLIC_ARWEAVE_PORT}`;
 
-
+  //console.log('**** arweave URL :', arweaveUrl )
 
 
 

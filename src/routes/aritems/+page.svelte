@@ -25,6 +25,8 @@
         <button on:click={() => viewAR(aritem)}>View</button>
         <p></p>
       </li>
+      {:else}
+      <p>No Items found</p>
     {/each}
     
 

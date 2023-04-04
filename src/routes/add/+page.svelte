@@ -3,6 +3,7 @@
     import { debug } from 'svelte/internal';
     import { goto } from '$app/navigation';
     import {  submit, waitfor } from "../arweavehelper.js";
+    import {PUBLIC_PROTOCOL} from '$env/static/public'
     let fileInput;
     let files;
     let avatar
@@ -36,7 +37,7 @@
            { name: "Title", value:img_name },                
            { name: "Description",value:description },       
            { name: "App-Name",value:"Your Company Name" },    
-           { name: "Protocol",value:"Archivist_CR" },  
+           { name: "Protocol",value: PUBLIC_PROTOCOL },  
            { name: "License",value:"txid of license definition-Future" },                
        ];
 

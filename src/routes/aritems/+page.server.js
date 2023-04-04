@@ -7,11 +7,13 @@ export const load=({ fetch,cookies}) =>{
         const response=await fetch('/api/arweave',{
 
             headers: {
-                'Authorization': `ArchivistAuthHeader`
+                'Authorization': `ArchivistAuthHeader`,   
+                'content-type': 'application/json'
             }
         })
         if (response.ok)
         {
+            //console.log('***** aritems fetch response :',      response )
             const data =await response.json()      
             return data 
         }

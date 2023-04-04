@@ -1,5 +1,5 @@
 <script>
-   export const appName ='Archivist_CR'  //todo read from config.
+   export const appName ='Archivist_CR'   
 </script>
 <header>
 <nav>

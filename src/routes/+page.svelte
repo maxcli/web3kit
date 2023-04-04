@@ -1,5 +1,6 @@
 <script>
-    //import 'dotenv/config'
+ 
+    import {PUBLIC_COOKIE_DURATION_SECONDS} from '$env/static/public'
     import { browser } from '$app/environment'
     import {page} from '$app/stores'
     import { ArweaveWebWallet } from 'arweave-wallet-connector'
@@ -9,8 +10,8 @@
 
     async function walletlogin() {
       if (browser) {
-       //let cookieSeconds=500//process.env.COOKIE_DURATION_SECONDS??500
-       // console.log('cookie seconds:',cookieSeconds)
+     
+        console.log('***cookie seconds:', PUBLIC_COOKIE_DURATION_SECONDS)
       
         const wallet = new ArweaveWebWallet({
             name: 'Archivist_CR',
@@ -18,8 +19,8 @@
         })
           wallet.setUrl('arweave.app')
           const result = await  wallet.connect()  //  chrome allow  popup https://support.google.com/chrome/answer/95472?hl=en&co=GENIE.Platform%3DDesktop
-          //document.cookie = `auth=${result}` 
-          document.cookie = `auth=${result};max-age=1200`  // cookie lifespan -seconds 
+       
+          document.cookie = `auth=${result};max-age={PUBLIC_COOKIE_DURATION_SECONDS}`  // cookie lifespan -seconds 
           loginButton='Logged in(prod)'
           document.getElementById('addanchor').classList.remove("disable-click")
           document.getElementById('itemanchor').classList.remove("disable-click")

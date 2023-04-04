@@ -1,25 +1,30 @@
 import Arweave from 'arweave'
 
+import {PUBLIC_PROTOCOL} from '$env/static/public'
+import {PUBLIC_ARWEAVE_PORT} from '$env/static/public'
+import {PUBLIC_ARWEAVE_PROTOCOL} from '$env/static/public'
+import {PUBLIC_ARWEAVE_HOST} from '$env/static/public'
+
 export const GET= async  ({request,url}) =>{     
     const arweave = Arweave.init({
-        host: import.meta.env.VITE_ARWEAVE_HOST || 'arweave.net',
-        port: import.meta.env.VITE_ARWEAVE_PORT || 443,
-        protocol: import.meta.env.VITE_ARWEAVE_PROTOCOL || 'https'
+        host:  PUBLIC_ARWEAVE_HOST,
+        port:  PUBLIC_ARWEAVE_PORT  ,
+        protocol: PUBLIC_ARWEAVE_PROTOCOL
     })
     
     const authHeader=request.headers.get('Authorization')
-    //console.log('****** authHeader:',  authHeader )
- 
     if(authHeader!='ArchivistAuthHeader')    
     {
         return new Response( JSON.stringify ({message: "Invalid Auth Credentials"}), {status:401}  )
     }
   
+//        transactions (first: 100 , tags: { name: "Protocol", values: [ "Archivist_CR"] })  {
+
     //todo pass protocol as paramter from config
       const result = await arweave.api.post('graphql', {
       query: `
     query {
-        transactions (first: 100 , tags: { name: "Protocol", values: [ "Archivist_CR"] })  {
+        transactions (first: 100 , tags: { name: "Protocol", values: [ "${PUBLIC_PROTOCOL}"] })  {
         edges {
             node {
             id
@@ -34,11 +39,10 @@ export const GET= async  ({request,url}) =>{
         `
         })
 
-        //console.log('*** Activity.after ql results:',result)
-        //console.log('after ql result status:',result.status)   //200
+ 
         const data= result?.data?.data?.transactions?.edges
 
-        //console.log('*** Server JS data:',data )
+      //  console.log('*** Server JS data:',data )
 
         return new Response(JSON.stringify (data), {status:200}    )
 
