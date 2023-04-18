@@ -7,7 +7,7 @@
 
 <h1>ID:{arrecord.id}</h1>
 
- <p>Title:${arrecord.tags.find(t => t.name=='Title').value}   </p> 
- <p>Description:${arrecord.tags.find(t => t.name=='Description').value}   </p> 
+ <p>Title: {arrecord.tags.find(t => t.name=='Title').value}   </p> 
+ <p>Description: {arrecord.tags.find(t => t.name=='Description').value}   </p> 
  
  

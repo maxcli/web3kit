@@ -19,9 +19,9 @@
     
     <li >
         <p></p>
-        <p>Title :${aritem.node.tags.find(t => t.name=='Title').value}   </p> 
-        <p>Description :${aritem.node.tags.find(t => t.name=='Description').value}   </p> 
-        <p>Protocol :${aritem.node.tags.find(t => t.name=='Protocol').value}   </p> 
+        <p>Title: {aritem.node.tags.find(t => t.name=='Title').value}   </p> 
+        <p>Description: {aritem.node.tags.find(t => t.name=='Description').value}   </p> 
+        <p>Protocol: {aritem.node.tags.find(t => t.name=='Protocol').value}   </p> 
         <button on:click={() => viewAR(aritem)}>View</button>
         <p></p>
       </li>
